@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'KHFtracker',
         'USER': 'postgres',
-        'PASSWORD' : 'PASSWORDHERE',
+        'PASSWORD' : 'PASSWORD',
         'HOST': 'localhost',
     }
 }

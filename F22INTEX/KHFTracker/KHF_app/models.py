@@ -27,6 +27,7 @@ class user(models.Model):
     height = models.IntegerField()
     age = models.IntegerField()
     weight = models.FloatField()
+    email = models.EmailField()
     comorbidity = models.ForeignKey(recommendation, on_delete=models.DO_NOTHING)
 
     def __str__(self):
