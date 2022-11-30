@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Meal Submitted Succesfully</title>
+    </head>
+
+    <body>
+        <h1>Meal List</h1>
+        <ul>
+            {% for meal in meals %}
+            <li> {{meal}}</li>
+            {% endfor %}
+        </ul>
+    </body>
+    <!-- ADD BUTTON TO REDIRECT TO A PAGE THAT CONTAINS ALL THE LISTS of users/page -->
+</html>

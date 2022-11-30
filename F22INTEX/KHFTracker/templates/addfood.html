@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Meal Submitted Succesfully</title>
+    </head>
+
+    <body>
+        <h1>Meal List</h1>
+        <ul>
+            {% for food_items_in_meal in fiimList %}
+            <li>
+                {{food_items_in_meal.meal}} has {{food_items_in_meal.quantity}} {{food_items_in_meal.food_name.measurement_unit}} of {{food_items_in_meal.food_name}}
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+    <!-- ADD BUTTON TO REDIRECT TO A PAGE THAT CONTAINS ALL THE LISTS of users/page -->
+</html>

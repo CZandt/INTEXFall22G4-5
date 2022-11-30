@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'/>
+        <title>Food Submitted Succesfully</title>
+    </head>
+
+    <body>
+        <h1>Food List</h1>
+        <ul>
+            {% for food_item in food_items %}
+            <li> {{food_item.food_name}}</li>
+            {% endfor %}
+        </ul>
+    </body>
+    <!-- ADD BUTTON TO REDIRECT TO A PAGE THAT CONTAINS ALL THE LISTS of users/page -->
+</html>

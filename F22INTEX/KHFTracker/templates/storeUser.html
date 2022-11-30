@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'/>
+        <title>User List</title>
+    </head>
+
+    <body>
+        <h1>User List</h1>
+
+        <ul>
+            {% for user in users %}
+            <li> {{user.full_name}} </li>
+            {% endfor %}
+        </ul>
+    </body>
+    <!-- ADD BUTTON TO REDIRECT TO A PAGE THAT CONTAINS ALL THE LISTS of users/page -->
+</html>

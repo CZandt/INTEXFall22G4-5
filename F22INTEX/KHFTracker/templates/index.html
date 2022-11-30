@@ -7,7 +7,114 @@
     </head>
 
     <body>
-        <h1>GROUP 4-5 PLACEHOLDER</h1>
+        <h1>Input Form for USER</h1>
+
+        <form name='form' method='post' action="{% url 'storeuser' %}">
+            {% csrf_token %}
+            <label for='first_name'>Enter the first name:</label>
+            <input type='text' name='first_name' id='first_name' required>
+            <br><br>
+            <label for='last_name'>Enter the last name:</label>
+            <input type='text' name='last_name' id='last_name' required>
+            <br><br> 
+            <label for='sex'>Enter the gennder:</label>
+            <select name='sex' required>
+                {% for sex, sex2 in sexList %}
+                    <option value='{{sex}}'>{{sex2}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <label for='height'>Enter the height:</label>
+            <input type='number' name='height' id='height' required>
+            <br><br>
+            <label for='age'>Enter the age:</label>
+            <input type='number' name='age' id='age' required>
+            <br><br>
+            <label for='weight'>Enter the weight:</label>
+            <input type='number' name='weight' id='weight' required>
+            <br><br>
+            <label for='email'>Enter the email:</label>
+            <input type='email' name='email' id='email' required>
+            <br><br>
+            <label for='comorbidity'>Select comorbidity:</label>
+            <select name='comorbidity' required>
+                {% for test in data %}
+                    <option value="{{ test.comorbidity }}">{{ test.comorbidity }}</option>
+                {% endfor %} </select>
+            <br><br>
+            <button type='submit'>Submit</button>
+            </form>
+
+        <br><br>
+        <h1>Input Form for food details</h1>
+        
+        <form name='form' method='post' action="{% url 'storefood' %}">
+            {% csrf_token %}
+            <label for='food_name'>Enter the foods name:</label>
+            <input type='text' name='food_name' id='food_name' required>
+            <br><br>
+            
+            <label for='measurement_unit'>Enter the measurement_unit:</label>
+            <input type='text' name='measurement_unit' id='measurement_unit' required>
+            <br><br>
+
+            <button type='submit'>Submit</button>
+        </form>
+
+
+        <br><br>
+        <h1>Input Form for user to add food to a daily Journal</h1>
+
+        <form name='form' method='post' action="{% url 'storeMeal' %}">
+            {%csrf_token%}
+            <label for='date'>Enter the date of the meal:</label>
+            <input types='date' name='date' id='date' required>
+            <br><br>
+
+            <label for='notes'>Enter the notes for the meal:</label>
+            <input types='text' name='notes' id='notes' required>
+            <br><br>
+
+            <select name='meal_type' required>
+                {% for meal, meal2 in mealList %}
+                    <option value='{{meal}}'>{{meal2}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <select name='user' required>
+                {% for user in users %}
+                    <option value="{{user.id}}">{{user.full_name}}</option>
+                {% endfor %} </select>
+            <br><br>
+
+            <button type='submit'>Submit</button>
+            </form>
+        
+        <br><br>
+
+        <h1>Add a food item to a meal</h1>
+        
+        <form name='form' method='post' action="{% url 'addFood' %}">
+            {%csrf_token%}
+            <select name='food_name' required> <!--BROKEN-->
+                {% for food in foodList %}
+                    <option value="{{food.id}}">{{food.food_name}}</option>
+                {% endfor %} </select>
+            <br><br>
+
+            <select name='meal' required> <!--BROKEN-->
+                {% for meal in meals %}
+                    <option value="{{meal.id}}">{{meal}}</option>
+                {% endfor %} </select>
+            <br><br>
+
+            <label for='quantity'> Enter the quantity of the food </label>
+            <input types='number' name='quantity' id='quantity' required>
+            <br><br>
+
+            <button type='submit'>Submit</button>
+
     </body>
 
 </html>

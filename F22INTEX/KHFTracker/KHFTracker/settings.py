@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'KHF_app.apps.KhfAppConfig',
+    'KHF_app',
 ]
 
 MIDDLEWARE = [

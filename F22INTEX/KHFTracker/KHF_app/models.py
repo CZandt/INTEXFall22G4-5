@@ -18,12 +18,15 @@ class user(models.Model):
         Female= 2, 'Female'
         Other= 3, 'Other'
 
+    SEX = (
+        ('Male', 'Male'),
+        ('Female','Female'),
+        ('Other','Other'),
+    )
+
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    sex = models.PositiveSmallIntegerField(
-        choices=sex_choices.choices,
-        default= sex_choices.Male
-    )
+    sex = models.CharField(max_length=6, choices=SEX)
     height = models.IntegerField()
     age = models.IntegerField()
     weight = models.FloatField()
@@ -44,18 +47,21 @@ class meal(models.Model):
         Dinner = 3, 'Dinner'
         Snack = 4, 'Snack'
         Water = 5, 'Water'
-
+    MEALCHOICE = (
+        ('Breakfast', 'Breakfast'),
+        ('Lunch', 'Lunch'),
+        ('Dinner', 'Dinner'),
+        ('Snack', 'Snack'),
+        ('Water','Water'),
+    )
     date = models.DateField()
     notes = models.CharField(max_length=1000) # 1000 character limit
-    meal_type = models.PositiveSmallIntegerField( #LMAOOO tHIS 
-        choices= meal_type_choice.choices,
-        default= meal_type_choice.Snack
-    )
+    meal_type = models.CharField(max_length=9, choices=MEALCHOICE)
     user = models.ForeignKey(user, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return(f'{self.user} {self.date} {self.meal_type}')
-
+  
 class food_item(models.Model):
     food_name = models.CharField(max_length=50)
     measurement_unit = models.CharField(max_length=50)
